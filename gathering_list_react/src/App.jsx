@@ -1,30 +1,27 @@
 import { useState } from 'react'
+import React from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { SearchDialog } from './components/SearchDialog'
 import './App.css'
 
 function App() {
-  const [search, setSearch] = useState("")
+  const dialogRef = React.useRef(null)
 
-  function updateData(e){
-    setSearch(e.target.value)
+  function showDialog(){
+    dialogRef.current.showModal();
   }
 
-  function searchAPI(){
-    fetch('https://api.scryfall.com/cards/search?order=name&q=' + search)
-      .then(function(response){
-        displayResults(response)
-      })
+  function closeDialog(){
+    dialogRef.current.close();
   }
 
   return (
     <>
-      <button>Add Card</button>
-      <dialog>
-        <form onSubmit={searchAPI}>
-          <input type="text" onChange={updateData} value={search}/>
-          <input type="submit" />
-        </form>
+      <button onClick={showDialog}>Add Card</button>
+      <dialog ref={dialogRef}>
+        <SearchDialog/>
+        <button onClick={closeDialog}>X</button>
       </dialog>
     </>
   )
