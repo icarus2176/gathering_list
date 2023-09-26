@@ -8,18 +8,20 @@ export function SearchDialog(){
     setSearch(e.target.value)
   }
 
-  function searchAPI(){
-    fetch('https://api.scryfall.com/cards/search?order=name&q=' + search)
-      .then(function(response){
-        //displayResults(response)
-        console.log(response)
-      })
+  function findCards(){
+    const cards = searchAPI();
+  }
+
+  async function searchAPI(){
+    const response = await fetch('https://api.scryfall.com/cards/search?order=name&q=' + search)
+    const cardData = await response.json();
+    return cardData;
   }
 
   return(
     <>
       <input type="text" onChange={updateData} value={search}/>
-      <button onClick={searchAPI}>Search</button>
+      <button onClick={findCards}>Search</button>
     </>
   )
 }
