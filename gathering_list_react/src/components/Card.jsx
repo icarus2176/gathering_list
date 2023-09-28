@@ -1,4 +1,4 @@
-export function Card(name, imgURL) {
+export function Card({name, imgURL}) {
   return(
     <div className="card">
       <img src={imgURL} alt={name} />
