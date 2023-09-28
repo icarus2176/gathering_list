@@ -13,6 +13,7 @@ export function SearchDialog(){
   async function findCards(){
     const cards = await searchAPI();
     setCardList(cards);
+    console.log(cards)
   }
 
   async function searchAPI(){
