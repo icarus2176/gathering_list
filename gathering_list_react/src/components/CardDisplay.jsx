@@ -7,7 +7,7 @@ export function CardDisplay({cards}){
   for(let i = 0; i < cards.length; i++){
 
     if(cards[i].image_uris){
-      allCards.push(<Card card={cards[i]} key={i} />)
+      allCards.push(<Card card={cards[i]} key={i}/>)
     } else {
       allCards.push(<DoubleFaced card={cards[i]} key={i} />)
     }
