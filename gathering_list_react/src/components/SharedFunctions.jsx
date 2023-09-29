@@ -1,3 +1,5 @@
+//moved functions to separate file to avoid prop drilling
+
 export async function searchAPI(APIURL, searchTerm){
   const response = fetch(APIURL + searchTerm)
     .then((response) => response.json())
@@ -8,13 +10,16 @@ export async function searchAPI(APIURL, searchTerm){
     return response;
 }
 
-export async function findCards(APIURL, searchTerm){
-  const cards = await searchAPI(APIURL, searchTerm);
-  console.log(cards)
-  return cards
+const printing = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=';
+
+export function btnAction(){
+  doBtn(card, btn)
 }
 
-export function doBtn(btnAction){
-  console.log(printing, card.name)
-  btnAction(printing, card.name);
+function doBtn(card, action){
+  if (action == "Add Card"){
+    console.log(action);
+  }else if(action == "Delete"){
+    console.log(action);
+  }
 }

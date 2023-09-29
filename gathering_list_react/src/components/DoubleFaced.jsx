@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { doBtn } from "./SharedFunctions";
-import { findCards } from './SharedFunctions'
+import { btnAction } from "./SharedFunctions";
+import { FoilRadio } from "./FoilRadio";
 
-export function DoubleFaced({card, btnAction, printing}) {
+export function DoubleFaced({card, btn}) {
   let frontURL = card.card_faces[0].image_uris.small;
   let backURL = card.card_faces[1].image_uris.small;
   const imgRef = React.useRef(null);
@@ -18,13 +18,12 @@ export function DoubleFaced({card, btnAction, printing}) {
     }
   }
 
-
-
   return(
     <div className="card">
       <img src={imgURL} alt={card.name} onClick={showBack} ref={imgRef}/>
       <div>{card.name}</div>
-      <button onClick={doBtn}>Button</button>
+      <FoilRadio foil={card.foil} nonfoil={card.nonfoil}  />
+      <button onClick={btnAction}>{btn}</button>
     </div>
   )
 }

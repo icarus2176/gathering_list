@@ -2,8 +2,10 @@ import { useState } from 'react'
 import React from 'react'
 import { SearchDialog } from './components/SearchDialog'
 import './App.css'
+import { CardDisplay } from './components/CardDisplay'
 
 function App() {
+  const [wishlist, setWishlist] = useState([])
   const dialogRef = React.useRef(null)
 
   function showDialog(){
@@ -21,6 +23,7 @@ function App() {
         <SearchDialog />
         <button onClick={closeDialog}>X</button>
       </dialog>
+      <CardDisplay cards={wishlist}/>
     </>
   )
 }

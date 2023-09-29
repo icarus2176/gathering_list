@@ -1,16 +1,15 @@
-export function Card({card, btnAction, printing}) {
-  let imgURL = card.image_uris.small;
+import { btnAction } from "./SharedFunctions";
+import { FoilRadio } from "./FoilRadio";
 
-  function doBtn(){
-    console.log(printing, card.name)
-    btnAction(printing, card.name);
-  }
+export function Card({card, btn}) {
+  let imgURL = card.image_uris.small;
 
   return(
     <div className="card">
       <img src={imgURL} alt={card.name} />
       <div>{card.name}</div>
-      <button onClick={doBtn}>Button</button>
+      <FoilRadio foil={card.foil} nonfoil={card.nonfoil} />
+      <button onClick={btnAction}>{btn}</button>
     </div>
   )
 }
