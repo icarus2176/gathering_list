@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { doBtn } from "./SharedFunctions";
+import { findCards } from './SharedFunctions'
 
 export function DoubleFaced({card, btnAction, printing}) {
   let frontURL = card.card_faces[0].image_uris.small;
@@ -16,10 +18,7 @@ export function DoubleFaced({card, btnAction, printing}) {
     }
   }
 
-  function doBtn(){
-    console.log(printing, card.name)
-    btnAction(printing, card.name);
-  }
+
 
   return(
     <div className="card">

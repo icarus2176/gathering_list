@@ -1,15 +1,12 @@
 import { Card } from "./Card";
 import { DoubleFaced } from "./DoubleFaced";
-import { useState } from "react";
+import { doBtn } from "./SharedFunctions";
+import { findCards } from './SharedFunctions'
 
 export function CardDisplay({cards, findCards}){
   let allCards = [];
 
   const printingURL = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=';
-
-  function setButton(){
-
-  }
 
   for(let i = 0; i < cards.length; i++){
 

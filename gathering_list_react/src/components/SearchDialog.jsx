@@ -1,7 +1,10 @@
 import { CardDisplay } from './CardDisplay'
 import {useState} from 'react'
+import { searchAPI } from './SharedFunctions'
+import { findCards } from './SharedFunctions'
 
-export function SearchDialog({searchAPI}){
+
+export function SearchDialog(){
   const [search, setSearch] = useState("")
   const [cardList, setCardList] = useState([])
 
@@ -9,14 +12,10 @@ export function SearchDialog({searchAPI}){
     setSearch(e.target.value)
   }
 
-  async function findCards(APIURL, searchTerm){
-    const cards = await searchAPI(APIURL, searchTerm);
-    setCardList(cards);
-    console.log(cards)
-  }
+  
 
   function searchData(){
-    findCards('https://api.scryfall.com/cards/search?order=name&q=', search);
+    setCardList(findCards('https://api.scryfall.com/cards/search?order=name&q=', search));
   }
 
   return(
