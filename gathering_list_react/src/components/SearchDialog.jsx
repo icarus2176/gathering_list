@@ -1,8 +1,7 @@
-import {Card} from './Card'
 import { CardDisplay } from './CardDisplay'
 import {useState} from 'react'
 
-export function SearchDialog(){
+export function SearchDialog({searchAPI}){
   const [search, setSearch] = useState("")
   const [cardList, setCardList] = useState([])
 
@@ -10,27 +9,21 @@ export function SearchDialog(){
     setSearch(e.target.value)
   }
 
-  async function findCards(){
-    const cards = await searchAPI();
+  async function findCards(APIURL, searchTerm){
+    const cards = await searchAPI(APIURL, searchTerm);
     setCardList(cards);
     console.log(cards)
   }
 
-  async function searchAPI(){
-    const response = fetch('https://api.scryfall.com/cards/search?order=name&q=' + search)
-      .then((response) => response.json())
-      .then((cardData) => {
-        return cardData.data;
-      })
-
-      return response;
+  function searchData(){
+    findCards('https://api.scryfall.com/cards/search?order=name&q=', search);
   }
 
   return(
     <>
       <input type="text" onChange={updateData} value={search}/>
-      <button onClick={findCards}>Search</button>
-      <CardDisplay cards={cardList} />
+      <button onClick={searchData}>Search</button>
+      <CardDisplay cards={cardList} findCards={findCards}/>
     </>
   )
 }

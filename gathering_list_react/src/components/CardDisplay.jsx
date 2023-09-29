@@ -1,15 +1,26 @@
 import { Card } from "./Card";
 import { DoubleFaced } from "./DoubleFaced";
+import { useState } from "react";
 
-export function CardDisplay({cards}){
+export function CardDisplay({cards, findCards}){
   let allCards = [];
+
+  const printingURL = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=';
+
+  function setButton(){
+
+  }
 
   for(let i = 0; i < cards.length; i++){
 
     if(cards[i].image_uris){
-      allCards.push(<Card card={cards[i]} key={i}/>)
+      allCards.push(<Card card={cards[i]} key={i} 
+        btnAction={findCards} printing={printingURL}
+      />)
     } else {
-      allCards.push(<DoubleFaced card={cards[i]} key={i} />)
+      allCards.push(<DoubleFaced card={cards[i]} key={i} 
+        btnAction={findCards}  printing={printingURL}
+      />)
     }
   }
 
