@@ -23,3 +23,14 @@ function doBtn(card, action){
     console.log(action);
   }
 }
+
+export function findFoil(card){
+  let foil = card.foil;
+  let nonfoil = card.nonfoil;
+
+  if(card.finishes && card.finishes.includes("etched")){
+    foil = true;
+  }
+
+  return [foil, nonfoil];
+}
