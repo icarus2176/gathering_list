@@ -2,7 +2,8 @@ import { CardDisplay } from './CardDisplay'
 import {useState} from 'react'
 import { searchAPI } from './SharedFunctions'
 
-export function SearchDialog(){const [search, setSearch] = useState("")
+export function SearchDialog({doBtn}){
+  const [search, setSearch] = useState("")
   const [cardList, setCardList] = useState([])
 
   function updateData(e){
@@ -23,7 +24,7 @@ export function SearchDialog(){const [search, setSearch] = useState("")
     <>
       <input type="text" onChange={updateData} value={search}/>
       <button onClick={searchData}>Search</button>
-      <CardDisplay cards={cardList} btnAction={"Add Card"}/>
+      <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
     </>
   )
 }

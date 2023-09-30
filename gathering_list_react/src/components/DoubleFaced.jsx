@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { btnAction, findFoil } from "./SharedFunctions";
+import { findFoil } from "./SharedFunctions";
 import { FoilRadio } from "./FoilRadio";
 
 export function DoubleFaced({card, btn}) {
@@ -25,7 +25,6 @@ export function DoubleFaced({card, btn}) {
       <img src={imgURL} alt={card.name} onClick={showBack} ref={imgRef}/>
       <div>{card.name}</div>
       <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} />
-      <button onClick={btnAction}>{btn}</button>
     </div>
   )
 }

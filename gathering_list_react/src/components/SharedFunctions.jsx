@@ -10,20 +10,6 @@ export async function searchAPI(APIURL, searchTerm){
     return response;
 }
 
-const printing = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=';
-
-export function btnAction(){
-  doBtn(card, btn)
-}
-
-function doBtn(card, action){
-  if (action == "Add Card"){
-    console.log(action);
-  }else if(action == "Delete"){
-    console.log(action);
-  }
-}
-
 export function findFoil(card){
   let foil = card.foil;
   let nonfoil = card.nonfoil;

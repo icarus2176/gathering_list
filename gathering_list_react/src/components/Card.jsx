@@ -1,4 +1,4 @@
-import { btnAction, findFoil } from "./SharedFunctions";
+import { findFoil } from "./SharedFunctions";
 import { FoilRadio } from "./FoilRadio";
 
 export function Card({card, btn}) {
@@ -11,7 +11,6 @@ export function Card({card, btn}) {
       <img src={imgURL} alt={card.name} />
       <div>{card.name}</div>
       <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} />
-      <button onClick={btnAction}>{btn}</button>
     </div>
   )
 }
