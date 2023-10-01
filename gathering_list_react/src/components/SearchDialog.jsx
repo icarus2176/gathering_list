@@ -16,8 +16,7 @@ export function SearchDialog({doBtn}){
 
   async function findCards(APIURL, searchTerm){
     const cards = await searchAPI(APIURL, searchTerm);
-    console.log(cards)
-    setCardList(cards)
+    setCardList(cards.map((x) => [x, "nonfoil"]))
   }
 
   return(

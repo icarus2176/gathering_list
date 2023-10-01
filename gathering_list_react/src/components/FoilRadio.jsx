@@ -1,9 +1,33 @@
-export function FoilRadio({foil, nonfoil}){
+export function FoilRadio({foil, nonfoil, foilRef, currentFoil}){
+  function removeFoil(){
+    foilRef.current.classList.replace("foil", "nonfoil");
+    console.log(foilRef.current.classList);
+  }
+
+  function addFoil(){
+    foilRef.current.classList.replace("nonfoil", "foil");
+    console.log(foilRef.current.classList);
+  }
+
+  let foilButton;
+  let nonFoilButton;
+
+  if(currentFoil == "foil"){
+    foilButton = <input type="radio" id="foil" name="foil" value="foil" disabled={!foil} onClick={addFoil} defaultChecked={true} />;
+    nonFoilButton = <input type="radio" id="nonfoil" name="foil" value="foil" disabled={!nonfoil} onClick={removeFoil} />;
+
+  } else{
+    foilButton = <input type="radio" id="foil" name="foil" value="foil" disabled={!foil} onClick={addFoil} />;
+    nonFoilButton = <input type="radio" id="nonfoil" name="foil" value="foil" disabled={!nonfoil} onClick={removeFoil} defaultChecked={true} />;
+
+  }
+
+
   return(
     <form>
-      <input type="radio" id="nonfoil" name="foil" value="foil" disabled={!nonfoil}/>
+      {nonFoilButton}
       <label htmlFor="nonfoil">Nonfoil</label>
-      <input type="radio" id="foil" name="foil" value="foil" disabled={!foil}/>
+      {foilButton}
       <label htmlFor="foil">Foil</label>
     </form>
   )
