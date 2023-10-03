@@ -1,6 +1,7 @@
 import { CardDisplay } from './CardDisplay'
 import {useState} from 'react'
 import { searchAPI } from './SharedFunctions'
+import "./SearchDialog.css"
 
 export function SearchDialog({doBtn}){
   const [search, setSearch] = useState("")
@@ -19,10 +20,18 @@ export function SearchDialog({doBtn}){
     setCardList(cards.map((x) => [x, "nonfoil"]))
   }
 
+  function enterKey(e){
+    if (e.keyCode === 13){
+      searchData();
+    }
+  }
+
   return(
     <>
-      <input type="text" onChange={updateData} value={search}/>
-      <button onClick={searchData}>Search</button>
+      <div className="searchBar" onKeyDown={enterKey}>
+        <input type="text" onChange={updateData} value={search}/>
+        <button onClick={searchData}>Search</button>
+      </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
     </>
   )

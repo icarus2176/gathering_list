@@ -31,10 +31,10 @@ function App() {
     <>
     <h1>Gathering List</h1>
     <h2>A Magic the Gathering Card Wishlist</h2>
-      <button onClick={showDialog}>Add Card</button>
+      <button class="addCard" onClick={showDialog}>+</button>
       <dialog ref={dialogRef}>
-        <SearchDialog doBtn={doBtn}/>
         <button onClick={closeDialog}>X</button>
+        <SearchDialog doBtn={doBtn}/>
       </dialog>
       <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
     </>

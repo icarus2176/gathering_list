@@ -1,0 +1,7 @@
+.searchbar{
+  display: inline-block;
+}
+
+input, button{
+  margin: 10px;
+}
