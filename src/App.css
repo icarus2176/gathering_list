@@ -64,9 +64,6 @@ dialog > button{
   font-size: 2em;
 }
 
-.header{
-  display: flex;
-}
 
 .contact{
   color: lightgray;
