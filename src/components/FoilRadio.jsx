@@ -10,7 +10,7 @@ export function FoilRadio({foil, nonfoil, foilRef, currentFoil}){
   let foilButton;
   let nonFoilButton;
 
-  if(currentFoil == "foil" || nonfoil == "false"){
+  if(currentFoil === "foil" || nonfoil === false){
     foilButton = <input type="radio" id="foil" name="foil" value="foil" disabled={!foil} onClick={addFoil} defaultChecked={true} />;
     nonFoilButton = <input type="radio" id="nonfoil" name="foil" value="foil" disabled={!nonfoil} onClick={removeFoil} />;
 

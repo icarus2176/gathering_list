@@ -13,8 +13,8 @@ export function Card({card, doBtn, btn}) {
   return(
     <div className={card[1]} ref={foilRef} >
       <img src={imgURL} alt={card.name} />
-      <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} foilRef={foilRef} />
-      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foilRef={foilRef} currenFoil={card[1]} />
+      <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} foilRef={foilRef}  currentFoil={card[1]}/>
+      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foilRef={foilRef} />
     </div>
   )
 }
