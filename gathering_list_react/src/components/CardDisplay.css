@@ -3,7 +3,6 @@
   width: 100%;
   grid-template-columns: repeat(auto-fill, 250px);
   grid-column-gap: 50px;
-  justify-content: space-around;
-  padding-right: 100px;
+  margin: auto;
 }
 

@@ -1,12 +1,10 @@
 export function FoilRadio({foil, nonfoil, foilRef, currentFoil}){
   function removeFoil(){
     foilRef.current.classList.replace("foil", "nonfoil");
-    console.log(foilRef.current.classList);
   }
 
   function addFoil(){
     foilRef.current.classList.replace("nonfoil", "foil");
-    console.log(foilRef.current.classList);
   }
 
   let foilButton;
