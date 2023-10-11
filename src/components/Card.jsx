@@ -9,9 +9,14 @@ export function Card({card, doBtn, btn}) {
   const foilRef = React.useRef(null);
 
   const foilOptions = findFoil(card[0])
+  let foilClass = card[1]
 
+  if(foilOptions[1] == false){
+    foilClass = "foil"
+  }
+  
   return(
-    <div className={card[1]} ref={foilRef} >
+    <div className={foilClass} ref={foilRef} >
       <img src={imgURL} alt={card.name} />
       <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} foilRef={foilRef}  currentFoil={card[1]}/>
       <CardButton card={card[0]} doBtn={doBtn} btn={btn} foilRef={foilRef} />
