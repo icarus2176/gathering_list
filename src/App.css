@@ -1,6 +1,6 @@
 #root {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
   text-align: center;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .header, .footer{
-  position: absolute;
+  width: 100%;
 }
 
 .header{
@@ -62,6 +62,10 @@ dialog > button{
   border-radius: 15px;
   text-align: center;
   font-size: 2em;
+}
+
+.save, .addCard{
+  z-index: 1;
 }
 
 
