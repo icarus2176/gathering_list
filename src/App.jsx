@@ -41,12 +41,14 @@ function App() {
     <div className="header">
       <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
     </div>
-    <button className="save" onClick={save}>Save</button>
-    <button className="addCard" onClick={showDialog}>+</button>
-      <dialog ref={dialogRef}>
-        <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
-      </dialog>
-      <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
+    <div className="main">
+      <button className="save" onClick={save}>Save</button>
+      <button className="addCard" onClick={showDialog}>+</button>
+        <dialog ref={dialogRef}>
+          <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
+        </dialog>
+        <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
+    </div>
       <div className="footer">
         <div className="contact">A fan project, not associated with Wizards of the Coast in any way.</div>
         <div className="contact">If there are errors or you wish to hire me, message me at ashe.kemuri@gmail.com</div>
