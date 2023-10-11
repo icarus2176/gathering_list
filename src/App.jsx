@@ -42,10 +42,9 @@ function App() {
       <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
     </div>
     <button className="save" onClick={save}>Save</button>
-      <button className="addCard" onClick={showDialog}>+</button>
+    <button className="addCard" onClick={showDialog}>+</button>
       <dialog ref={dialogRef}>
-        <button onClick={closeDialog}>X</button>
-        <SearchDialog doBtn={doBtn}/>
+        <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
       </dialog>
       <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
       <div className="footer">

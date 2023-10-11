@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { searchAPI } from './SharedFunctions'
 import "./SearchDialog.css"
 
-export function SearchDialog({doBtn}){
+export function SearchDialog({doBtn, closeDialog}){
   const [search, setSearch] = useState("")
   const [cardList, setCardList] = useState([])
 
@@ -31,6 +31,7 @@ export function SearchDialog({doBtn}){
       <div className="searchBar" onKeyDown={enterKey}>
         <input type="text" onChange={updateData} value={search}/>
         <button onClick={searchData}>Search</button>
+        <button onClick={closeDialog}>X</button>
       </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
     </>
