@@ -1,18 +1,21 @@
 import React, {useState} from "react";
-import { findFoil } from "./SharedFunctions";
+import { findFoil, findCost } from "./SharedFunctions";
 import { FoilRadio } from "./FoilRadio";
-import "./Card.css";
+import { CardInfo } from "./CardInfo";
 import { CardButton } from "./CardButton";
+import "./Card.css";
 
 type Props = {
-  card: any[],
+  card: any,
   doBtn: Function,
   btn: string
 }
+
 export function DoubleFaced({card, doBtn, btn}: Props) {
   let frontURL = card[0].card_faces[0].image_uris.normal;
   let backURL = card[0].card_faces[1].image_uris.normal;
-  const foilRef = React.useRef(null);
+  const [show, setShow]  = useState({display: 'none'});
+  const [foil, setFoil] = useState(card[1]);
   const imgRef = React.useRef(null);
   const [imgURL, setImgURL] = useState(frontURL)
 
@@ -26,13 +29,33 @@ export function DoubleFaced({card, doBtn, btn}: Props) {
     }
   }
 
+  function makeVisible(){
+    setShow({display: 'block'});
+  }
+
+  function makeInvisible(){
+    setShow({display: 'none'});
+  }
+
   const foilOptions = findFoil(card[0])
 
+  if(foilOptions[1] == false && foil == "nonfoil"){
+    setFoil("foil");
+  }
+  
+  const price = findCost(card[0], foil);
+
   return(
-    <div className={card[1]} ref={foilRef}>
-      <img src={imgURL} alt={card.name} onClick={showBack} ref={imgRef}/>
-      <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} foilRef={foilRef} />
-      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foilRef={foilRef} currenFoil={card[1]} />
+    <div className={foil}>
+      <img src={imgURL} alt={card.name} onClick={showBack} ref={imgRef} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
+      <div className="info" style={show}>
+        <CardInfo card={card[0]} />
+      </div>
+      <div className="price">
+        <div>${price}</div>
+        <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} setFoil={setFoil}  currentFoil={foil}/>
+      </div>
+      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foil={foil} />
     </div>
   )
 }

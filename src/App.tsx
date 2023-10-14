@@ -43,7 +43,7 @@ function App() {
     </div>
     <div className="main">
       <button className="save" onClick={save}>Save</button>
-      <button className="addCard" onClick={showDialog}>+</button>
+      <button className="addCard" onClick={showDialog}>Add</button>
         <dialog ref={dialogRef}>
           <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
         </dialog>

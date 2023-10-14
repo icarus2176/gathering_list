@@ -1,0 +1,8 @@
+.cardInfo > *{
+  text-align: left;
+  padding: 10px;
+}
+
+.topCard{
+  grid-template-columns: 3fr 1fr;
+}

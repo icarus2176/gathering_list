@@ -16,7 +16,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function searchData(){
-    findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=', search);
+    findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + search + "+game%3Apaper");
   }
 
   async function findCards(APIURL, searchTerm){

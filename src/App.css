@@ -44,18 +44,14 @@
 
 dialog{
   width: 75%;
+  border-radius: 15px;
 }
 
 .addCard{
-  display: block;
+  height: 50px;
   position: fixed;
   bottom: 10px;
   right: 10px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 2em;
 }
 
 .save, .addCard{

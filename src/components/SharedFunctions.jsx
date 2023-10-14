@@ -1,11 +1,13 @@
 //moved functions to separate file to avoid prop drilling
 
-export async function searchAPI(APIURL, searchTerm){
-  const response = fetch(APIURL + searchTerm)
+export async function searchAPI(APIURL){
+  const response = fetch(APIURL)
     .then((response) => response.json())
     .then((cardData) => {
       return cardData.data;
     })
+
+    console.log(response);
 
     return response;
 }
@@ -19,4 +21,14 @@ export function findFoil(card){
   }
 
   return [foil, nonfoil];
+}
+
+export function findCost(card, foil){
+  if(card.finishes && card.finishes.includes("etched")){
+    return card.prices.usd_etched;
+  }else if(foil == "foil"){
+    return card.prices.usd_foil;
+  } else {
+    return card.prices.usd;
+  }
 }

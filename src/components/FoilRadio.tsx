@@ -1,17 +1,17 @@
 type Props = {
   foil: boolean,
   nonfoil: boolean,
-  foilRef: any,
+  setFoil: Function,
   currentFoil: string
 }
 
-export function FoilRadio({foil, nonfoil, foilRef, currentFoil}: Props){
+export function FoilRadio({foil, nonfoil, setFoil, currentFoil}: Props){
   function removeFoil(){
-    foilRef.current.classList.replace("foil", "nonfoil");
+    setFoil("nonfoil");
   }
 
   function addFoil(){
-    foilRef.current.classList.replace("nonfoil", "foil");
+    setFoil("foil");
   }
 
   let foilButton;

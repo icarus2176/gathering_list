@@ -1,20 +1,14 @@
 type Props = {
-  card: any[],
+  card: any,
   doBtn: Function,
   btn: string,
-  foilRef: any
+  foil: string
 }
 
-export function CardButton({card, doBtn, btn, foilRef}: Props){
+export function CardButton({card, doBtn, btn, foil}: Props){
   function btnAction(){
-    let isFoil;
-    if(foilRef.current.classList.contains("foil")){
-      isFoil = "foil";
-    } else{
-      isFoil = "nonfoil";
-    }
 
-    doBtn(card, btn, isFoil);
+    doBtn(card, btn, foil);
   }
 
   return(

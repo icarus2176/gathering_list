@@ -1,11 +1,12 @@
-import React from "react";
-import { findFoil } from "./SharedFunctions";
+import React, {useState} from "react";
+import { findFoil, findCost } from "./SharedFunctions";
 import { FoilRadio } from "./FoilRadio";
-import "./Card.css";
+import { CardInfo } from "./CardInfo";
 import { CardButton } from "./CardButton";
+import "./Card.css";
 
 type Props = {
-  card: any[],
+  card: any,
   doBtn: Function,
   btn: string
 }
@@ -13,20 +14,36 @@ type Props = {
 export function Card({card, doBtn, btn}: Props) {
 
   let imgURL = card[0].image_uris.normal;
-  const foilRef = React.useRef(null);
+  const [show, setShow]  = useState({display: 'none'});
+  const [foil, setFoil] = useState(card[1]);
 
-  const foilOptions = findFoil(card[0])
-  let foilClass = card[1]
+  const foilOptions = findFoil(card[0]);
 
-  if(foilOptions[1] == false){
-    foilClass = "foil"
+  if(foilOptions[1] == false && foil == "nonfoil"){
+    setFoil("foil");
+  }
+
+  const price = findCost(card[0], foil);
+
+  function makeVisible(){
+    setShow({display: 'block'});
+  }
+
+  function makeInvisible(){
+    setShow({display: 'none'});
   }
   
   return(
-    <div className={foilClass} ref={foilRef} >
-      <img src={imgURL} alt={card.name} />
-      <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} foilRef={foilRef}  currentFoil={card[1]}/>
-      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foilRef={foilRef} />
+    <div className={foil} >
+      <img src={imgURL} alt={card.name} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
+      <div className="info" style={show}>
+        <CardInfo card={card[0]} />
+      </div>
+      <div className="price">
+        <div>${price}</div>
+        <FoilRadio foil={foilOptions[0]} nonfoil={foilOptions[1]} setFoil={setFoil}  currentFoil={foil}/>
+      </div>
+      <CardButton card={card[0]} doBtn={doBtn} btn={btn} foil={foil} />
     </div>
   )
 }
