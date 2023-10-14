@@ -3,6 +3,7 @@ Deployed at https://gathering-list.netlify.app/
 
 Uses:
 React
+Typescript
 Windows Local Storage
 Scryfall API
 
@@ -20,5 +21,6 @@ Wishlist will not transfer between devices.
 For double faced cards click them to see the other side.
 You can search with the "enter" key.
 The dialog can be closed with the "esc" key.
+Deleting a Card will delete all of the same printings.
 
 If there are any problems, please contact me at ashe.kemuri@gmail.com
