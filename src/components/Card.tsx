@@ -35,7 +35,7 @@ export function Card({card, doBtn, btn}: Props) {
   
   return(
     <div className={foil} >
-      <img src={imgURL} alt={card.name} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
+      <img className="cardImg" src={imgURL} alt={card.name} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
       <div className="info" style={show}>
         <CardInfo card={card[0]} />
       </div>

@@ -16,18 +16,6 @@ export function DoubleFaced({card, doBtn, btn}: Props) {
   let backURL = card[0].card_faces[1].image_uris.normal;
   const [show, setShow]  = useState({display: 'none'});
   const [foil, setFoil] = useState(card[1]);
-  const imgRef = React.useRef(null);
-  const [imgURL, setImgURL] = useState(frontURL)
-
-  function showBack(){
-    if(imgURL == frontURL){
-      imgRef.current.src = backURL;
-      setImgURL(backURL);
-    }else{
-      imgRef.current.src = frontURL;
-      setImgURL(frontURL);
-    }
-  }
 
   function makeVisible(){
     setShow({display: 'block'});
@@ -47,9 +35,9 @@ export function DoubleFaced({card, doBtn, btn}: Props) {
 
   return(
     <div className={foil}>
-      <img src={imgURL} alt={card.name} onClick={showBack} ref={imgRef} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
-      <div className="info" style={show}>
-        <CardInfo card={card[0]} />
+      <img className="cardImg" src={frontURL} alt={card.name} onMouseEnter={makeVisible} onMouseLeave={makeInvisible}/>
+      <div className="back" style={show}>
+        <img className="cardImg" src={backURL} alt={card.name} />
       </div>
       <div className="price">
         <div>${price}</div>

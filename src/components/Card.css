@@ -1,4 +1,4 @@
-img{
+.cardImg{
   width: 100%;
 }
 
@@ -20,15 +20,18 @@ img{
   border-color: transparent;
 }
 
-.info{
+.back, .info{
   position: relative;
+  right: 25px;
+  bottom: 150px;
+}
+
+.info{
+  width: 400px;
   border: solid;
   border-color: black;
   border-radius: 15px;
   background-color: white;
-  right: 25px;
-  bottom: 150px;
-  width: 400px;
 }
 
 .topCard, .price{
