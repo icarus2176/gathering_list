@@ -1,0 +1,22 @@
+.loginAndSignUp{
+  width: 75%;
+  height: 60%;
+  border-style: solid;
+  border-radius: 15px;
+  background-color: white;
+  margin: auto;
+  margin-top: 15%;
+}
+
+.forms{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.logoSmall{
+  width: min(350px, 100%);
+}
+
+.login{
+  border-right: solid;
+}

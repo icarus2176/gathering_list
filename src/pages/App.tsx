@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import React from 'react';
-import { SearchDialog } from './components/SearchDialog';
+import { SearchDialog } from '../components/SearchDialog';
+import { CardDisplay } from '../components/CardDisplay';
+import gatheringlogo from "../assets/gatheringlogo.png";
 import './App.css';
-import { CardDisplay } from './components/CardDisplay';
-import gatheringlogo from "./assets/gatheringlogo.png";
 
 function App() {
   let startingList = []
