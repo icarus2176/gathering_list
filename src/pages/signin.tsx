@@ -1,22 +1,26 @@
-import { AuthForm } from "../components/AuthForm"
 import gatheringlogo from "../assets/gatheringlogo.png";
+import  { useState, useEffect } from "react";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import 'firebase/compat/auth';
+import {auth, uiConfig, onAuthStateChanged } from "../firebase-setup/firebase";
 import "./signin.css"
 
 export default function SignIn(){
-
+  /* const [user, setUser] = useState(false);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(true);
+      } else {
+        setUser(false);
+      }
+    });
+  });
+*/
   return(
     <div className="loginAndSignUp">
       <img className="logoSmall" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
-      <div className="forms">
-        <div className="login">
-          <h3>Login</h3>
-          <AuthForm />
-        </div>
-        <div className="SignUp">
-          <h3>Don't Have an Account? Sign Up Here!</h3>
-          <AuthForm />
-        </div>
-      </div>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
     </div>
   )
 }

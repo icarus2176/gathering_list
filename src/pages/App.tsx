@@ -3,13 +3,16 @@ import React from 'react';
 import { SearchDialog } from '../components/SearchDialog';
 import { CardDisplay } from '../components/CardDisplay';
 import gatheringlogo from "../assets/gatheringlogo.png";
+import { auth } from "../firebase-setup/firebase"
+import { useNavigate } from "react-router-dom";
 import './App.css';
 
 function App() {
   let startingList = []
+  const navigate = useNavigate();
+  console.log(auth.currentUser)
 
-  if (localStorage.wishlist)
-  {
+  if (localStorage.wishlist){
     startingList = JSON.parse(localStorage.wishlist);
   }
 
@@ -36,10 +39,19 @@ function App() {
     localStorage.wishlist = JSON.stringify(wishlist);
   }
 
+  async function logout(){
+    console.log(auth.currentUser);
+    auth.signOut().then(function() {
+      console.log(auth.currentUser);
+      navigate("/");
+    });
+  }
+
   return (
     <>
     <div className="header">
       <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
+      <button className="signout" onClick={logout}>Sign Out</button>
     </div>
     <div className="main">
       <button className="save" onClick={save}>Save</button>
