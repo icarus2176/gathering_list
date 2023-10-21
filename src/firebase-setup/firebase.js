@@ -35,10 +35,7 @@ export const ui =
 export var uiConfig = {
   signInFlow: "redirect",
   signInSuccessUrl: "/app",
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-  ],
+  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
 };
 
 export const getCurrentUser = () => {

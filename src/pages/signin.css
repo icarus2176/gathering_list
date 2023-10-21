@@ -1,11 +1,11 @@
 .loginAndSignUp{
   width: 75%;
-  height: 60%;
+  height: 50vh;
   border-style: solid;
   border-radius: 15px;
   background-color: white;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 10vh;
 }
 
 .forms{
@@ -15,6 +15,7 @@
 
 .logoSmall{
   width: min(350px, 100%);
+  margin-top: 5vh;
 }
 
 .login{

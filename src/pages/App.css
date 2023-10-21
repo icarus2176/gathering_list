@@ -66,3 +66,10 @@ dialog{
 .main{
   min-height: 80vh;
 }
+
+.signout{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+

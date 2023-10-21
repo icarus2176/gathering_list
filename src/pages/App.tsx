@@ -9,7 +9,6 @@ import { ref, set, child, get, onValue } from "firebase/database";
 import './App.css';
 
 function App() {
-  console.log("reload")
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
@@ -57,20 +56,23 @@ function App() {
 
   return (
     <>
-    <div className="header">
-      <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
-      <button className="signout" onClick={logout}>Sign Out</button>
-    </div>
-    <div className="main">
-      <button className="save" onClick={save}>Save</button>
-      <button className="addCard" onClick={showDialog}>Add</button>
-        <dialog ref={dialogRef}>
-          <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
-        </dialog>
-        <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
-    </div>
+    <div className="gradient">
+      <div className="header">
+        <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
+        <button className="signout" onClick={logout}>Sign Out</button>
+      </div>
+      <div className="main">
+        <button className="save" onClick={save}>Save</button>
+        <button className="addCard" onClick={showDialog}>Add</button>
+          <dialog ref={dialogRef}>
+            <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
+          </dialog>
+          <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
+      </div>
+      </div>
       <div className="footer">
         <div className="contact">A fan project, not associated with Wizards of the Coast in any way.</div>
+        <div className='contact'>Thanks to Scryfall for their public API!</div>
         <div className="contact">If there are errors or you wish to hire me, message me at ashe.kemuri@gmail.com</div>
       </div>
     </>
