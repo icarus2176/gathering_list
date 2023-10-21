@@ -1,23 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 import { SearchDialog } from '../components/SearchDialog';
 import { CardDisplay } from '../components/CardDisplay';
 import gatheringlogo from "../assets/gatheringlogo.png";
-import { auth } from "../firebase-setup/firebase"
+import { auth, database } from "../firebase-setup/firebase"
 import { useNavigate } from "react-router-dom";
+import { ref, set, child, get, onValue } from "firebase/database";
 import './App.css';
 
 function App() {
-  let startingList = []
+  console.log("reload")
+  const [wishlist, setWishlist] = useState([]);
+
+  useEffect(() => {
+    const dbRef = ref(database);
+    get(child(dbRef, `users/${auth.currentUser.uid}`)).then((snapshot) => {
+      if (snapshot.exists() ) {
+        let startingList = snapshot.val()
+        startingList = startingList.wishlist;
+        setWishlist(startingList);
+      }
+    });
+  }, []);
+
   const navigate = useNavigate();
-  console.log(auth.currentUser)
-
-  if (localStorage.wishlist){
-    startingList = JSON.parse(localStorage.wishlist);
-  }
-
-  const [wishlist, setWishlist] = useState(startingList)
-  const dialogRef = React.useRef(null)
+  const dialogRef = React.useRef(null);
 
   function showDialog(){
     dialogRef.current.showModal();
@@ -36,13 +43,14 @@ function App() {
   }
 
   function save(){
-    localStorage.wishlist = JSON.stringify(wishlist);
+    set(ref(database, 'users/' + auth.currentUser.uid), {
+      wishlist: wishlist
+  });
   }
 
   async function logout(){
     console.log(auth.currentUser);
     auth.signOut().then(function() {
-      console.log(auth.currentUser);
       navigate("/");
     });
   }
