@@ -1,12 +1,19 @@
 A website meant to keep a wishlist of Magic the Gathering cards.
 Deployed at https://gathering-list.netlify.app/
 
+
 Uses:
+
 React
+
 Typescript - typechecking
+
 Scryfall API - look up cards
+
 Firebase Auth, UI - login in and logout
+
 Firebase Database - data storage
+
 
 Initial visit will bring User to screen where they can login via Google account with Firebase Auth.
 Clicking the button in the bottom right corner brings up a dialog with a searchbar.
