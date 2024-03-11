@@ -52,5 +52,5 @@ button:focus-visible {
 }
 
 .gradient, body{
-  background-image: linear-gradient(rgb(43, 41, 153), rgb(240, 243, 197));
+  background-image: linear-gradient(rgb(236, 191, 44), rgb(43, 41, 153));
 }
