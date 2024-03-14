@@ -44,9 +44,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function searchData(){
-    console.log("searchdata")
-    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters().join("+");
-    console.log(searchTerm)
+    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters();
     findCards(searchTerm);
   }
 
@@ -71,7 +69,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       array.push("rarity%3A" + rarity);
     }
 
-    return array;
+    return array.join("+");
   }
 
   async function findCards(APIURL){
