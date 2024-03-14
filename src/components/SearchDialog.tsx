@@ -9,15 +9,15 @@ type Props = {
 }
 export function SearchDialog({doBtn, closeDialog}: Props){
   console.log("got rid of searchtterm")
-  const [search, setSearch] = useState("")
+  const [name, setName] = useState("")
   const [cardList, setCardList] = useState([])
 
   function updateData(e){
-    setSearch(e.target.value)
+    setName(e.target.value)
   }
 
   function searchData(){
-    findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + search + "+game%3Apaper");
+    findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + name + "+game%3Apaper");
   }
 
   async function findCards(APIURL){
@@ -34,7 +34,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   return(
     <>
       <div className="searchBar" onKeyDown={enterKey}>
-        <input type="text" onChange={updateData} value={search}/>
+        <input type="text" onChange={updateData} value={name}/>
         <button onClick={searchData}>Search</button>
         <button onClick={closeDialog}>X</button>
       </div>
