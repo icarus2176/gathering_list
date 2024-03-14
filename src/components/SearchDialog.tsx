@@ -42,7 +42,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
     setRarity(e.target.value)
   }
 
-  function searchData(){
+  function searchData(e){
     e.preventdefault();
     let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters() + "+game%3Apaper";
     findCards(searchTerm);
