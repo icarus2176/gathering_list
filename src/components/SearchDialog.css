@@ -34,13 +34,6 @@ form  > input, label, #rarity, #type textarea, #submit{
   flex-direction: column;
 }
 
-@media (min-width: 769px){
-  .searchForm{
-    display: grid;
-    grid-template-columns: 40% 40%
-  }
-}
-
 @media (max-width: 768px){
   input, textarea, select, #submit{
     width: auto;
@@ -48,5 +41,9 @@ form  > input, label, #rarity, #type textarea, #submit{
   
   .inputAndLabel > *, .color{
     font-size: 16px;
+  }
+
+  #close{
+    margin-bottom: 30px;
   }
 }
