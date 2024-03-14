@@ -14,7 +14,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   const [textbox, setTextbox] = useState("");
   const [color, setColor] = useState([""]);
   const [type, setType] = useState("all");
-  const [rarity, setRarity] =useState("all");
+  const [rarity, setRarity] = useState("all");
   const [cardList, setCardList] = useState([]);
 
   function updateName(e){
@@ -118,18 +118,13 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <input type="checkbox" id="C" value={"C"} onChange={updateColor}/>
             <label htmlFor="C">Colorless</label>
           </div>
-          <div className='rarity'>
-            <input type="radio" id='all' value="all" name='rarity' onChange={updateRarity}/>
-            <label htmlFor="all">All</label>
-            <input type="radio" id='common' value="common" name='rarity' onChange={updateRarity}/>
-            <label htmlFor="common">Common</label>
-            <input type="radio" id='uncommon' value="uncommon"  name='rarity' onChange={updateRarity}/>
-            <label htmlFor="uncommon">Uncommon</label>
-            <input type="radio" id='rare' value="rare" name='rarity' onChange={updateRarity}/>
-            <label htmlFor="rare">Rare</label>
-            <input type="radio" id='mythic' value="mythic" name='rarity' onChange={updateRarity}/>
-            <label htmlFor="mythic">Mythic</label>
-          </div>
+          <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
+            <option value="all"></option>
+            <option value="c">Common</option>
+            <option value="u">Uncommon</option>
+            <option value="r">Rare</option>
+            <option value="m">Mythic</option>
+          </select>
           <button onClick={searchData}>Search</button>
         </form>
         <button onClick={closeDialog}>X</button>
