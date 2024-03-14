@@ -5,3 +5,12 @@
 input, button{
   margin: 10px;
 }
+
+.searchForm{
+  display: flex;
+  flex-direction: column;
+}
+
+form > label{
+  text-align: left;
+}

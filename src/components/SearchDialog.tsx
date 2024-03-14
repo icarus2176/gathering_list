@@ -8,19 +8,74 @@ type Props = {
   closeDialog: Function
 }
 export function SearchDialog({doBtn, closeDialog}: Props){
-  const [search, setSearch] = useState("")
-  const [cardList, setCardList] = useState([])
 
-  function updateData(e){
-    setSearch(e.target.value)
+  console.log("loaded")
+  const [name, setName] = useState("");
+  const [textbox, setTextbox] = useState("");
+  const [color, setColor] = useState([""]);
+  const [type, setType] = useState("all");
+  const [rarity, setRarity] =useState("all");
+  const [cardList, setCardList] = useState([]);
+
+  function updateName(e){
+    setName(e.target.value)
+  }
+
+  function updateTextbox(e){
+    setTextbox(e.target.value)
+  }
+
+  function updateColor(e){
+    let temp = color;
+    if(temp.includes(e.target.value)){
+      temp.splice(e.target.value, 1);
+    } else{
+      temp.push(e.target.value);
+    }
+    setColor(temp);
+  }
+
+  function updateType(e){
+    setType(e.target.value)
+  }
+
+  function updateRarity(e){
+    setRarity(e.target.value)
   }
 
   function searchData(){
-    findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + search + "+game%3Apaper");
+    console.log("searchdata")
+    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters();
+    console.log(searchTerm)
+    findCards(searchTerm);
   }
 
-  async function findCards(APIURL, searchTerm){
-    const cards = await searchAPI(APIURL, searchTerm);
+  function compilefilters(){
+    let array = []
+
+    array.push(name);
+
+    if(textbox != ""){
+      array.push("oracle%3A" + textbox);
+    }
+
+    if(color.length > 1){
+        array.push(color.join(""))
+    }
+
+    if(type != "all"){
+      array.push("type%3A" + type);
+    }
+
+    if(rarity  != "all"){
+      array.push("rarity%3A" + rarity);
+    }
+
+    return array;
+  }
+
+  async function findCards(APIURL){
+    const cards = await searchAPI(APIURL);
     setCardList(cards.map((x) => [x, "nonfoil"]))
   }
 
@@ -30,11 +85,55 @@ export function SearchDialog({doBtn, closeDialog}: Props){
     }
   }
 
+
   return(
     <>
-      <div className="searchBar" onKeyDown={enterKey}>
-        <input type="text" onChange={updateData} value={search}/>
-        <button onClick={searchData}>Search</button>
+      <div id="searchBar" onKeyDown={enterKey}>
+        <form className='searchForm'>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" onChange={updateName} value={name}/>
+          <label htmlFor="name">Oracle Text</label>
+          <input type="text" name="textBox" onChange={updateTextbox} value={textbox}/>
+          <label htmlFor="type">Type</label>
+          <select id='type' form="searchBar" onChange={updateType} value={type}>
+            <option value="all"></option>
+            <option value="artifact">Artifact</option>
+            <option value="battle">Battle</option>
+            <option value="creature">Creature</option>
+            <option value="enchantment">Enchantment</option>
+            <option value="instant">Instant</option>
+            <option value="land">Land</option>
+            <option value="planeswalker">Planeswalker</option>
+            <option value="sorcery">Sorcery</option>
+          </select>
+          <div className='color'>
+            <input type="checkbox" name="W" value={"W"} onChange={updateColor}/>
+            <label htmlFor="W">White</label>
+            <input type="checkbox" name="U" value={"U"} onChange={updateColor}/>
+            <label htmlFor="U">Blue</label>
+            <input type="checkbox" name="B" value={"B"} onChange={updateColor}/>
+            <label htmlFor="B">Black</label>
+            <input type="checkbox" name="R" value={"R"} onChange={updateColor}/>
+            <label htmlFor="R">Red</label>
+            <input type="checkbox" name="G" value={"G"} onChange={updateColor}/>
+            <label htmlFor="G">Green</label>
+            <input type="checkbox" name="C" value={"C"} onChange={updateColor}/>
+            <label htmlFor="C">Colorless</label>
+          </div>
+          <div className='rarity'>
+            <input type="radio" value="all" name='rarity' onChange={updateRarity}/>
+            <label htmlFor="all">All</label>
+            <input type="radio" value="common" name='rarity' onChange={updateRarity}/>
+            <label htmlFor="common">Common</label>
+            <input type="radio" value="uncommon"  name='rarity' onChange={updateRarity}/>
+            <label htmlFor="uncommon">Uncommon</label>
+            <input type="radio" value="rare" name='rarity' onChange={updateRarity}/>
+            <label htmlFor="rare">Rare</label>
+            <input type="radio" value="mythic" name='rarity' onChange={updateRarity}/>
+            <label htmlFor="mythic">Mythic</label>
+          </div>
+          <button onClick={searchData}>Search</button>
+        </form>
         <button onClick={closeDialog}>X</button>
       </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
