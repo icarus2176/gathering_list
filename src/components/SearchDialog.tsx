@@ -43,7 +43,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function searchData(e){
-    e.preventdefault();
+    e.preventDefault();
     let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters() + "+game%3Apaper";
     findCards(searchTerm);
   }
