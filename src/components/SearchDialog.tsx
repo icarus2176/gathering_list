@@ -45,7 +45,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   function searchData(){
     console.log("searchdata")
-    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters();
+    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters().join("+");
     console.log(searchTerm)
     findCards(searchTerm);
   }
@@ -91,9 +91,9 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       <div id="searchBar" onKeyDown={enterKey}>
         <form className='searchForm'>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" onChange={updateName} value={name}/>
-          <label htmlFor="name">Oracle Text</label>
-          <input type="text" name="textBox" onChange={updateTextbox} value={textbox}/>
+          <input type="text" id="name" onChange={updateName} value={name}/>
+          <label htmlFor="textbox">Oracle Text</label>
+          <input type="text" id="textBox" onChange={updateTextbox} value={textbox}/>
           <label htmlFor="type">Type</label>
           <select id='type' form="searchBar" onChange={updateType} value={type}>
             <option value="all"></option>
@@ -107,29 +107,29 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <option value="sorcery">Sorcery</option>
           </select>
           <div className='color'>
-            <input type="checkbox" name="W" value={"W"} onChange={updateColor}/>
+            <input type="checkbox" id="W" value={"W"} onChange={updateColor}/>
             <label htmlFor="W">White</label>
-            <input type="checkbox" name="U" value={"U"} onChange={updateColor}/>
+            <input type="checkbox" id="U" value={"U"} onChange={updateColor}/>
             <label htmlFor="U">Blue</label>
-            <input type="checkbox" name="B" value={"B"} onChange={updateColor}/>
+            <input type="checkbox" id="B" value={"B"} onChange={updateColor}/>
             <label htmlFor="B">Black</label>
-            <input type="checkbox" name="R" value={"R"} onChange={updateColor}/>
+            <input type="checkbox" id="R" value={"R"} onChange={updateColor}/>
             <label htmlFor="R">Red</label>
-            <input type="checkbox" name="G" value={"G"} onChange={updateColor}/>
+            <input type="checkbox" id="G" value={"G"} onChange={updateColor}/>
             <label htmlFor="G">Green</label>
-            <input type="checkbox" name="C" value={"C"} onChange={updateColor}/>
+            <input type="checkbox" id="C" value={"C"} onChange={updateColor}/>
             <label htmlFor="C">Colorless</label>
           </div>
           <div className='rarity'>
-            <input type="radio" value="all" name='rarity' onChange={updateRarity}/>
+            <input type="radio" id='all' value="all" name='rarity' onChange={updateRarity}/>
             <label htmlFor="all">All</label>
-            <input type="radio" value="common" name='rarity' onChange={updateRarity}/>
+            <input type="radio" id='common' value="common" name='rarity' onChange={updateRarity}/>
             <label htmlFor="common">Common</label>
-            <input type="radio" value="uncommon"  name='rarity' onChange={updateRarity}/>
+            <input type="radio" id='uncommon' value="uncommon"  name='rarity' onChange={updateRarity}/>
             <label htmlFor="uncommon">Uncommon</label>
-            <input type="radio" value="rare" name='rarity' onChange={updateRarity}/>
+            <input type="radio" id='rare' value="rare" name='rarity' onChange={updateRarity}/>
             <label htmlFor="rare">Rare</label>
-            <input type="radio" value="mythic" name='rarity' onChange={updateRarity}/>
+            <input type="radio" id='mythic' value="mythic" name='rarity' onChange={updateRarity}/>
             <label htmlFor="mythic">Mythic</label>
           </div>
           <button onClick={searchData}>Search</button>
