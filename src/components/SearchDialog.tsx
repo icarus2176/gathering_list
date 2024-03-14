@@ -8,6 +8,7 @@ type Props = {
   closeDialog: Function
 }
 export function SearchDialog({doBtn, closeDialog}: Props){
+  console.log("got rid of searchtterm")
   const [search, setSearch] = useState("")
   const [cardList, setCardList] = useState([])
 
@@ -19,8 +20,8 @@ export function SearchDialog({doBtn, closeDialog}: Props){
     findCards('https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + search + "+game%3Apaper");
   }
 
-  async function findCards(APIURL, searchTerm){
-    const cards = await searchAPI(APIURL, searchTerm);
+  async function findCards(APIURL){
+    const cards = await searchAPI(APIURL);
     setCardList(cards.map((x) => [x, "nonfoil"]))
   }
 
