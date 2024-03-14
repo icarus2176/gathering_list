@@ -72,6 +72,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   async function findCards(APIURL){
     const cards = await searchAPI(APIURL);
+    console.log("data received by dialog")
     setCardList(cards.map((x) => [x, "nonfoil"]))
     console.log("mapped cards")
   }
