@@ -8,7 +8,7 @@ export async function searchAPI(APIURL){
     })
 
     console.log(response);
-    
+    console.log(APIURL)
     return response;
 }
 
