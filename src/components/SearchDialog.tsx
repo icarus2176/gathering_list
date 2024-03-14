@@ -57,13 +57,14 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       array.push("oracle%3A" + textbox);
     }
 
-    if(color.length > 1){
-        array.push(color.join(""))
-    }
-
     if(type != "all"){
       array.push("type%3A" + type);
     }
+
+    if(color.length > 1){
+        array.push("color%3D" + color.join(""))
+    }
+
 
     if(rarity  != "all"){
       array.push("rarity%3A" + rarity);
