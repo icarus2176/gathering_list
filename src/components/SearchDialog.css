@@ -7,11 +7,6 @@
   flex-direction: column;
 }
 
-.searchForm{
-  display: grid;
-  grid-template-columns: 40% 40%
-}
-
 form > label{
   text-align: left;
 }
@@ -20,7 +15,7 @@ textarea{
   height: 40px;
 }
 
-.searchForm > *{
+.inputAndLabel > *, .color{
   font-size: 20px;
 }
 
@@ -34,12 +29,19 @@ form  > input, label, #rarity, #type textarea, #submit{
   width: 40%;
 }
 
+@media (min-width: 769px){
+  .searchForm{
+    display: grid;
+    grid-template-columns: 40% 40%
+  }
+}
+
 @media (max-width: 768px){
   input, textarea, select, #submit{
     width: auto;
   }
   
-  form > *{
+  .inputAndLabel > *, .color{
     font-size: 16px;
   }
 }

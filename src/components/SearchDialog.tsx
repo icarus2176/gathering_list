@@ -100,30 +100,38 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
       <div id="searchBar" onKeyDown={enterKey}>
         <form onSubmit={searchData} className='searchForm'>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" onChange={updateName} value={name}/>
-          <label htmlFor="textbox">Oracle Text</label>
-          <textarea id="textBox" onChange={updateTextbox} value={textbox}></textarea>
-          <label htmlFor="type">Type</label>
-          <select id='type' form="searchBar" onChange={updateType} value={type}>
-            <option value="all"></option>
-            <option value="artifact">Artifact</option>
-            <option value="battle">Battle</option>
-            <option value="creature">Creature</option>
-            <option value="enchantment">Enchantment</option>
-            <option value="instant">Instant</option>
-            <option value="land">Land</option>
-            <option value="planeswalker">Planeswalker</option>
-            <option value="sorcery">Sorcery</option>
-          </select>
-          <label htmlFor="rarity">Rarity</label>
-          <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
-            <option value="all"></option>
-            <option value="c">Common</option>
-            <option value="u">Uncommon</option>
-            <option value="r">Rare</option>
-            <option value="m">Mythic</option>
-          </select>
+          <div className="inputAndLabel">
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" onChange={updateName} value={name}/>
+          </div>
+          <div className="inputAndLabel">
+            <label htmlFor="textbox">Oracle Text</label>
+            <textarea id="textBox" onChange={updateTextbox} value={textbox}></textarea>
+          </div>
+          <div className="inputAndLabel">
+            <label htmlFor="type">Type</label>
+              <select id='type' form="searchBar" onChange={updateType} value={type}>
+                <option value="all"></option>
+                <option value="artifact">Artifact</option>
+                <option value="battle">Battle</option>
+                <option value="creature">Creature</option>
+                <option value="enchantment">Enchantment</option>
+                <option value="instant">Instant</option>
+                <option value="land">Land</option>
+                <option value="planeswalker">Planeswalker</option>
+                <option value="sorcery">Sorcery</option>
+              </select>
+          </div>
+          <div className="inputAndLabel">
+            <label htmlFor="rarity">Rarity</label>
+            <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
+              <option value="all"></option>
+              <option value="c">Common</option>
+              <option value="u">Uncommon</option>
+              <option value="r">Rare</option>
+              <option value="m">Mythic</option>
+            </select>
+          </div>
           <div className='color'>
             <input type="checkbox" id="W" value={"W"} onChange={updateColor}/>
             <label htmlFor="W">White</label>
