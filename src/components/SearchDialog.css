@@ -2,13 +2,14 @@
   display: inline-block;
 }
 
-input, button{
-  margin: 10px;
-}
-
 .searchForm{
   display: flex;
   flex-direction: column;
+}
+
+.searchForm{
+  display: grid;
+  grid-template-columns: 40%;
 }
 
 form > label{
@@ -24,10 +25,12 @@ form > *{
 }
 
 #close{
+  display: float;
+  float: right;
   margin-right: 20px;
 }
 
-form > select, form  > input, label, textarea, #submit{
+form  > input, label, #rarity, #type textarea, #submit{
   width: 40%;
 }
 
