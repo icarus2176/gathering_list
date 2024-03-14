@@ -25,29 +25,38 @@ textarea{
   margin: 10px;
 }
 
-.inputAndLabel > input, #rarity, #type, textarea, #submit{
-  width: 40%;
-}
+
 
 .inputAndLabel{
   display: flex;
   flex-direction: column;
 }
 
-.inputAndLabel, #color{
+.inputAndLabel, .color{
   margin: 10px;
 }
 
-.inputAndLabel > label{
+.inputAndLabel > label, .color{
   text-align: left;
 }
 
+@media (min-width: 769px){
+  .searchForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .inputAndLabel > input, #rarity, #type, textarea, #submit{
+    width: 40%;
+  }
+}
+
 @media (max-width: 768px){
-  input, textarea, select, #submit{
-    width: auto;
+  .inputAndLabel > input, #rarity, #type, textarea, #submit{
+    width:auto;
   }
   
-  .inputAndLabel > *, .color{
+  .inputAndLabel > *, .color > *{
     font-size: 16px;
   }
 
