@@ -8,8 +8,6 @@ type Props = {
   closeDialog: Function
 }
 export function SearchDialog({doBtn, closeDialog}: Props){
-
-  console.log("loaded")
   const [name, setName] = useState("");
   const [textbox, setTextbox] = useState("");
   const [color, setColor] = useState([""]);
@@ -44,7 +42,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function searchData(){
-    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters();
+    let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters() + "+game%3Apaper";
     findCards(searchTerm);
   }
 
