@@ -25,17 +25,20 @@ textarea{
   margin: 10px;
 }
 
-.inputAndLabel > input, #rarity, #type textarea, #submit{
+.inputAndLabel > input, #rarity, #type, textarea, #submit{
   width: 40%;
 }
 
 .inputAndLabel{
   display: flex;
   flex-direction: column;
+}
+
+.inputAndLabel, #color{
   margin: 10px;
 }
 
-.inputAndLabel > input{
+.inputAndLabel > label{
   text-align: left;
 }
 
