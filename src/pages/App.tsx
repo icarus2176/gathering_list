@@ -48,7 +48,6 @@ function App() {
   }
 
   async function logout(){
-    console.log(auth.currentUser);
     auth.signOut().then(function() {
       navigate("/");
     });
@@ -56,25 +55,26 @@ function App() {
 
   return (
     <>
-    <div className="gradient">
-      <div className="header">
-        <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
-        <button className="signout" onClick={logout}>Sign Out</button>
-      </div>
-      <div className="main">
-        <button className="save" onClick={save}>Save</button>
-        <button className="addCard" onClick={showDialog}>Add</button>
-          <dialog ref={dialogRef}>
-            <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
-          </dialog>
-          <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
-      </div>
-      </div>
-      <div className="footer">
-        <div className="contact">A fan project, not associated with Wizards of the Coast in any way.</div>
-        <div className='contact'>Thanks to Scryfall for their public API!</div>
-        <div className="contact">If there are errors or you wish to hire me, message me at ashe.kemuri@gmail.com</div>
-      </div>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <div className="gradient" onClick={closeDialog}>
+        <div className="header">
+          <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
+          <button className="signout" onClick={logout}>Sign Out</button>
+        </div>
+        <div className="main">
+          <button className="save" onClick={save}>Save</button>
+          <button className="addCard" onClick={showDialog}>Add</button>
+            <dialog ref={dialogRef}>
+              <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
+            </dialog>
+            <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
+        </div>
+        </div>
+        <div className="footer">
+          <div className="contact">A fan project, not associated with Wizards of the Coast in any way.</div>
+          <div className='contact'>Thanks to Scryfall for their public API!</div>
+          <div className="contact">If there are errors or you wish to hire me, message me at ashe.kemuri@gmail.com</div>
+        </div>
     </>
   )
 }

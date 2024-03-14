@@ -14,3 +14,29 @@ input, button{
 form > label{
   text-align: left;
 }
+
+textarea{
+  height: 30px;
+}
+
+form > *{
+  font-size: 24px;
+}
+
+#close{
+  align-self: right;
+}
+
+input, textarea, select, #submit{
+  width: 40%;
+}
+
+@media (max-width: 768px){
+  input, textarea, select, #submit{
+    width: auto;
+  }
+  
+  form > *{
+    font-size: 16px;
+  }
+}

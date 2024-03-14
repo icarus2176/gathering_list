@@ -18,9 +18,12 @@ export default function SignIn(){
   });
 */
   return(
-    <div className="loginAndSignUp">
-      <img className="logoSmall" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-    </div>
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <div className="loginAndSignUp">
+        <img className="logoSmall" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+      </div>
+    </>
   )
 }

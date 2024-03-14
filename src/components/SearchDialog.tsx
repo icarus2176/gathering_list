@@ -81,6 +81,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   function checkData(data){
     if(data.status){
+      alert("No cards with these details.")
       return false;
     }else{
       return true;
@@ -95,12 +96,14 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   return(
     <>
+      <button id="close" onClick={closeDialog}>X</button>
+
       <div id="searchBar" onKeyDown={enterKey}>
         <form onSubmit={searchData} className='searchForm'>
           <label htmlFor="name">Name</label>
           <input type="text" id="name" onChange={updateName} value={name}/>
           <label htmlFor="textbox">Oracle Text</label>
-          <input type="text" id="textBox" onChange={updateTextbox} value={textbox}/>
+          <textarea id="textBox" onChange={updateTextbox} value={textbox}></textarea>
           <label htmlFor="type">Type</label>
           <select id='type' form="searchBar" onChange={updateType} value={type}>
             <option value="all"></option>
@@ -112,6 +115,14 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <option value="land">Land</option>
             <option value="planeswalker">Planeswalker</option>
             <option value="sorcery">Sorcery</option>
+          </select>
+          <label htmlFor="rarity">Rarity</label>
+          <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
+            <option value="all"></option>
+            <option value="c">Common</option>
+            <option value="u">Uncommon</option>
+            <option value="r">Rare</option>
+            <option value="m">Mythic</option>
           </select>
           <div className='color'>
             <input type="checkbox" id="W" value={"W"} onChange={updateColor}/>
@@ -127,17 +138,8 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <input type="checkbox" id="C" value={"C"} onChange={updateColor}/>
             <label htmlFor="C">Colorless</label>
           </div>
-          <label htmlFor="rarity">Rarity</label>
-          <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
-            <option value="all"></option>
-            <option value="c">Common</option>
-            <option value="u">Uncommon</option>
-            <option value="r">Rare</option>
-            <option value="m">Mythic</option>
-          </select>
-          <button type='submit'>Search</button>
+          <button id="submit" type='submit'>Search</button>
         </form>
-        <button onClick={closeDialog}>X</button>
       </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
     </>
