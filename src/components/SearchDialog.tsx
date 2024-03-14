@@ -8,12 +8,17 @@ type Props = {
   closeDialog: Function
 }
 export function SearchDialog({doBtn, closeDialog}: Props){
-  console.log("got rid of searchtterm")
+  console.log("change to form")
   const [name, setName] = useState("")
+  const [type, setType] = useState("all");
   const [cardList, setCardList] = useState([])
 
-  function updateData(e){
+  function updateName(e){
     setName(e.target.value)
+  }
+
+  function updateType(e){
+    setType(e.target.value)
   }
 
   function searchData(){
@@ -34,8 +39,10 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   return(
     <>
       <div className="searchBar" onKeyDown={enterKey}>
-        <input type="text" onChange={updateData} value={name}/>
-        <button onClick={searchData}>Search</button>
+        <form>
+          <input type="text" onChange={updateName} value={name}/>
+          <button onClick={searchData}>Search</button>
+        </form>
         <button onClick={closeDialog}>X</button>
       </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
