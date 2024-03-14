@@ -45,17 +45,9 @@ textarea{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
-  .inputAndLabel > input, #rarity, #type, textarea, #submit{
-    width: 40%;
-  }
 }
 
 @media (max-width: 768px){
-  .inputAndLabel > input, #rarity, #type, textarea, #submit{
-    width:auto;
-  }
-  
   .inputAndLabel > *, .color > *{
     font-size: 16px;
   }
