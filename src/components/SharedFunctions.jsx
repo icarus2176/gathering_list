@@ -1,13 +1,11 @@
 //moved functions to separate file to avoid prop drilling
 
 export async function searchAPI(APIURL){
-  console.log("fetch from api")
   const response = fetch(APIURL)
     .then((response) => response.json())
     .then((cardData) => {
       return cardData.data;
     })
-    console.log("return promise")
 
     return response;
 }
