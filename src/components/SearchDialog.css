@@ -9,7 +9,7 @@
 
 .searchForm{
   display: grid;
-  grid-template-columns: 40%;
+  grid-template-columns: 40% 40%
 }
 
 form > label{
@@ -20,7 +20,7 @@ textarea{
   height: 40px;
 }
 
-form > *{
+.searchForm > *{
   font-size: 20px;
 }
 
