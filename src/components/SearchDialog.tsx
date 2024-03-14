@@ -42,7 +42,9 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function searchData(){
+    console.log("search")
     let searchTerm = 'https://api.scryfall.com/cards/search?unique=prints&order=name&q=' + compilefilters() + "+game%3Apaper";
+    console.log(searchTerm)
     findCards(searchTerm);
   }
 
@@ -71,6 +73,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   async function findCards(APIURL){
+    console.log(findCards)
     const cards = await searchAPI(APIURL);
     console.log("data received by dialog")
     setCardList(cards.map((x) => [x, "nonfoil"]))
