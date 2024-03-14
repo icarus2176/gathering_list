@@ -27,7 +27,7 @@ form > *{
   align-self: right;
 }
 
-input, textarea, select, #submit{
+input, textarea, #type #submit{
   width: 40%;
 }
 

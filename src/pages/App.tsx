@@ -56,7 +56,7 @@ function App() {
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      <div className="gradient" onClick={closeDialog}>
+      <div className="gradient">
         <div className="header">
           <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>
           <button className="signout" onClick={logout}>Sign Out</button>
