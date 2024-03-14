@@ -73,6 +73,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   async function findCards(APIURL){
     const cards = await searchAPI(APIURL);
     setCardList(cards.map((x) => [x, "nonfoil"]))
+    console.log("mapped cards")
   }
 
   function enterKey(e){
@@ -116,6 +117,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <input type="checkbox" id="C" value={"C"} onChange={updateColor}/>
             <label htmlFor="C">Colorless</label>
           </div>
+          <label htmlFor="rarity">Rarity</label>
           <select id='rarity' form="searchBar" onChange={updateRarity} value={rarity}>
             <option value="all"></option>
             <option value="c">Common</option>

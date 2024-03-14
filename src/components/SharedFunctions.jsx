@@ -7,8 +7,6 @@ export async function searchAPI(APIURL){
       return cardData.data;
     })
 
-    console.log(response);
-    console.log(APIURL)
     return response;
 }
 
