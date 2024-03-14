@@ -65,7 +65,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
         array.push("color%3D" + color.join(""))
     }
 
-
     if(rarity  != "all"){
       array.push("rarity%3A" + rarity);
     }
@@ -75,7 +74,17 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   async function findCards(APIURL){
     const cards = await searchAPI(APIURL);
-    setCardList(cards.map((x) => [x, "nonfoil"]))
+    if(checkData(cards)){
+      setCardList(cards.map((x) => [x, "nonfoil"]))
+    }
+  }
+
+  function checkData(data){
+    if(data.status){
+      return false;
+    }else{
+      return true;
+    }
   }
 
   function enterKey(e){
@@ -83,7 +92,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       searchData();
     }
   }
-
 
   return(
     <>
