@@ -22,16 +22,21 @@ textarea{
 #close{
   display: float;
   float: right;
-  margin-right: 20px;
+  margin: 10px;
 }
 
-form  > input, label, #rarity, #type textarea, #submit{
+.inputAndLabel > input, #rarity, #type textarea, #submit{
   width: 40%;
 }
 
 .inputAndLabel{
   display: flex;
   flex-direction: column;
+  margin: 10px;
+}
+
+.inputAndLabel > input{
+  text-align: left;
 }
 
 @media (max-width: 768px){
