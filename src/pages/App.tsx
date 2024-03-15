@@ -69,7 +69,7 @@ function App() {
           <button className="addCard" onClick={showDialog}>Add</button>
             <dialog ref={dialogRef} >
               <div className='dialogBackdrop' onClick={closeDialog}>
-                <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
+                <SearchDialog doBtn={doBtn} closeDialog={closeDialog} />
               </div>
             </dialog>
             <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
