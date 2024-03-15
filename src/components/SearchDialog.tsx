@@ -32,8 +32,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       temp.push(e.target.value);
     }
     setColor(temp);
-
-    console.log(color)
   }
 
   function updateType(e){
@@ -82,7 +80,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function checkData(data){
-    if(data.status){
+    if(data[0].status){
       alert("No cards with these details.")
       return false;
     }else{
