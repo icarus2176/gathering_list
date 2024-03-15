@@ -67,10 +67,10 @@ function App() {
         <div className="main">
           <button className="save" onClick={save}>Save</button>
           <button className="addCard" onClick={showDialog}>Add</button>
-            <dialog ref={dialogRef} >
-              <div className='dialogBackdrop' onClick={closeDialog}>
-                <SearchDialog doBtn={doBtn} closeDialog={closeDialog} />
-              </div>
+            <dialog ref={dialogRef} onClick={closeDialog}>
+                <div onClick={e => {e.stopPropagation();}}>
+                  <SearchDialog doBtn={doBtn} closeDialog={closeDialog} />
+                </div>
             </dialog>
             <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
         </div>
