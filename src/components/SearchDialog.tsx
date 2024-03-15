@@ -95,7 +95,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   return(
-    <>
+    <div onClick={e => {e.stopPropagation()}}>
       <button id="close" onClick={closeDialog}>X</button>
 
       <div id="searchBar" onKeyDown={enterKey}>
@@ -148,6 +148,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
         </form>
       </div>
       <CardDisplay cards={cardList} doBtn={doBtn} btn={"Add Card"}/>
-    </>
+    </div>
   )
 }
