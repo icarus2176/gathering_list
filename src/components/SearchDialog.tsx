@@ -32,6 +32,8 @@ export function SearchDialog({doBtn, closeDialog}: Props){
       temp.push(e.target.value);
     }
     setColor(temp);
+
+    console.log(color)
   }
 
   function updateType(e){
@@ -133,17 +135,17 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             </select>
           </div>
           <div className='color'>
-            <input type="checkbox" id="W" value={"W"} onChange={updateColor}/>
+            <input type="checkbox" id="W" name='color' value={"W"} onChange={updateColor}/>
             <label htmlFor="W">White</label>
-            <input type="checkbox" id="U" value={"U"} onChange={updateColor}/>
+            <input type="checkbox" id="U" name='color' value={"U"} onChange={updateColor}/>
             <label htmlFor="U">Blue</label>
-            <input type="checkbox" id="B" value={"B"} onChange={updateColor}/>
+            <input type="checkbox" id="B" name='color' value={"B"} onChange={updateColor}/>
             <label htmlFor="B">Black</label>
-            <input type="checkbox" id="R" value={"R"} onChange={updateColor}/>
+            <input type="checkbox" id="R" name='color' value={"R"} onChange={updateColor}/>
             <label htmlFor="R">Red</label>
-            <input type="checkbox" id="G" value={"G"} onChange={updateColor}/>
+            <input type="checkbox" id="G" name='color' value={"G"} onChange={updateColor}/>
             <label htmlFor="G">Green</label>
-            <input type="checkbox" id="C" value={"C"} onChange={updateColor}/>
+            <input type="checkbox" id="C" name='color' value={"C"} onChange={updateColor}/>
             <label htmlFor="C">Colorless</label>
           </div>
           <button id="submit" type='submit'>Search</button>
