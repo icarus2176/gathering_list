@@ -81,11 +81,11 @@ export function SearchDialog({doBtn, closeDialog}: Props){
 
   function checkData(data){
     console.log(data)
-    if(data[0].status){
+    if(data){
+      return true;
+    }else{
       alert("No cards with these details.")
       return false;
-    }else{
-      return true;
     }
   }
 
