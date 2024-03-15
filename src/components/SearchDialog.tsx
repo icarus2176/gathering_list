@@ -27,7 +27,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   function updateColor(e){
     let temp = color;
     if(temp.includes(e.target.value)){
-      temp = temp.filter((c) => c == e.target.value);
+      temp = temp.filter((c) => c != e.target.value);
     } else{
       temp.push(e.target.value);
     }
