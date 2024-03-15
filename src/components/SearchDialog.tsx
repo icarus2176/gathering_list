@@ -80,6 +80,7 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function checkData(data){
+    console.log(data)
     if(data[0].status){
       alert("No cards with these details.")
       return false;
@@ -143,8 +144,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
             <label htmlFor="R">Red</label>
             <input type="checkbox" id="G" name='color' value={"G"} onChange={updateColor}/>
             <label htmlFor="G">Green</label>
-            <input type="checkbox" id="C" name='color' value={"C"} onChange={updateColor}/>
-            <label htmlFor="C">Colorless</label>
           </div>
           <button id="submit" type='submit'>Search</button>
         </form>
