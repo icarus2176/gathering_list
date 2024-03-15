@@ -67,7 +67,7 @@ function App() {
         <div className="main">
           <button className="save" onClick={save}>Save</button>
           <button className="addCard" onClick={showDialog}>Add</button>
-            <dialog ref={dialogRef}>
+            <dialog ref={dialogRef} onClick={closeDialog}>
               <SearchDialog doBtn={doBtn} closeDialog={closeDialog}/>
             </dialog>
             <CardDisplay cards={wishlist} doBtn={doBtn} btn={"Delete"}/>
