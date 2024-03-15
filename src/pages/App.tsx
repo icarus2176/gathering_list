@@ -56,6 +56,9 @@ function App() {
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <meta name='description' content='Magic the Gathering Wishlist'></meta>
+      <meta name='keywords' content='Magic, Gathering, Wishlist, Gathering List'></meta>
+      <meta name='author' content='Ashe Kemuri'></meta>
       <div className="gradient">
         <div className="header">
           <img className="logo" src={gatheringlogo} alt="Logo. Gathering List. A Magic the Gathering Card Wishlist"/>

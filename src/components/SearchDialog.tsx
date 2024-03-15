@@ -80,7 +80,6 @@ export function SearchDialog({doBtn, closeDialog}: Props){
   }
 
   function checkData(data){
-    console.log(data)
     if(data){
       return true;
     }else{
